@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apache-demo
+  template:
+    metadata:
+      labels:
+        app: apache-demo
+    spec:
+      containers:
+        - name: apache-demo
+          image: luciav1982/apache-demo:v1
+          ports:
+            - containerPort: 80
